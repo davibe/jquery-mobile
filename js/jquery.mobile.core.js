@@ -50,7 +50,7 @@
 
 		//support conditions that must be met in order to proceed
 		gradeA: function(){
-			return $.support.mediaquery;
+			return $.support.mediaquery || $.browser.msieDetect && $.browser.msieDetect >= 6;
 		},
 
 		//TODO might be useful upstream in jquery itself ?

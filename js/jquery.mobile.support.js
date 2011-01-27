@@ -25,6 +25,13 @@ function propExists( prop ){
 	}
 };
 
+//non-UA-based IE version check by James Padolsey, modified by jdalton - from http://gist.github.com/527683
+$.browser.msieDetect = (function() {
+    var v = 3, div = document.createElement('div'), a = div.all || [];
+    while (div.innerHTML = '<!--[if gt IE '+(++v)+']><br><![endif]-->', a[0]); 
+    return v > 4 ? v : !v;
+}());
+
 //test for dynamic-updating base tag support (allows us to avoid href,src attr rewriting)
 function baseTagTest(){
 	var fauxBase = location.protocol + '//' + location.host + location.pathname + "ui-dir/",
